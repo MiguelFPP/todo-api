@@ -23,7 +23,7 @@ class LoginFeature
         try {
             $credentials = $this->data->only('email', 'password');
 
-            if (auth()->attempt($credentials)) {
+            if (!auth()->attempt($credentials)) {
                 return response()->json([
                     'message' => 'Invalid credentials.',
                 ], Response::HTTP_UNAUTHORIZED);
