@@ -30,7 +30,7 @@ class PriorityAllTest extends TestCase
             $user,
             'api'
         )->getJson(route('v1.priorities.index'));
-        
+
         $response->assertOk();
         $response->assertJsonStructure([
             '*' => [
@@ -39,5 +39,25 @@ class PriorityAllTest extends TestCase
                 'is_active',
             ],
         ]);
+    }
+
+    public function test_priority_all_without_priorities_in_database()
+    {
+        $user = User::factory()->create();
+
+        $response = $this->actingAs(
+            $user,
+            'api'
+        )->getJson(route('v1.priorities.index'));
+
+        $response->assertOk();
+        $response->assertJsonStructure([]);
+    }
+
+    public function test_priority_all_unauthenticated()
+    {
+        $response = $this->getJson(route('v1.priorities.index'));
+
+        $response->assertUnauthorized();
     }
 }
