@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         Priority::factory(3)->create();
         TypeTask::factory(4)->create();
         StatusTask::factory(4)->create();
+        Task::factory(20)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
