@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 require 'api/auth.php';
 require 'api/user.php';
 require 'api/priorities.php';
+require 'api/type_task.php';
