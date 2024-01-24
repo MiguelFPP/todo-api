@@ -20,3 +20,4 @@ require 'api/user.php';
 require 'api/priorities.php';
 require 'api/type_task.php';
 require 'api/status_task.php';
+require 'api/task.php';
