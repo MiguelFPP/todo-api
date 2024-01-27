@@ -24,7 +24,7 @@ class MultiDelTaskRequest extends FormRequest
     {
         return [
             'ids' => ['required', 'array'],
-            'ids.*' => ['required', 'integer', Rule::exists('tasks', 'id')
+            'ids.*' => ['required', Rule::exists('tasks', 'id')
                 ->where('user_id', auth()->user()->id)
                 ->whereNull('deleted_at')],
         ];

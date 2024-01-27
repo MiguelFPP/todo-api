@@ -14,5 +14,5 @@ Route::prefix('tasks')->middleware('auth:api')->group(function () {
     Route::delete('/{id}', DeleteTaskController::class)->name('v1.task.delete');
     Route::post('/', StoreTaskController::class)->name('v1.task.store');
     Route::put('/{id}', UpdateTaskController::class)->name('v1.task.update');
-    Route::post('/multiple-delete', MultiDelTaskController::class)->name('v1.task.multiple-delete');
+    Route::post('/multiple-delete', MultiDelTaskController::class)->name('v1.task.multi-del');
 });
