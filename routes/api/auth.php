@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterUserController;
 use App\Http\Controllers\Auth\ResendCodeController;
 use App\Http\Controllers\Auth\VerifyUserController;
@@ -13,4 +14,8 @@ Route::prefix('auth')->group(function () {
     Route::get('/verify/{code}', VerifyUserController::class)->name('v1.auth.verify');
     Route::post('/resend-code', ResendCodeController::class)->name('v1.auth.resend-code');
     Route::post('/login', LoginController::class)->name('v1.auth.login');
+
+    Route::middleware('auth:api')->group(function () {
+        Route::post('/logout', LogoutController::class)->name('v1.auth.logout');
+    });
 });
